@@ -1,0 +1,1 @@
+cp home.nix ~/.config/nixpkgs/home.nix
