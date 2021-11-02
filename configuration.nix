@@ -12,9 +12,9 @@
     efi.canTouchEfiVariables = true;
   };
   boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.kernelModules = [ "first" ];
+  boot.kernelModules = [ "kbd-backlit" ];
   boot.extraModulePackages = [
-    (pkgs.callPackage (import /home/nish/first-driver) {
+    (pkgs.callPackage (import /home/nish/Projects/kbd-backlit) {
       pkgs = pkgs;
     })
   ];
