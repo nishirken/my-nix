@@ -11,16 +11,8 @@
     systemd-boot.enable = true;
     efi.canTouchEfiVariables = true;
   };
+  boot.kernelModules = [ "dell_laptop" ];
   boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.kernelModules = [ "kbd-backlit" ];
-  boot.extraModulePackages = [
-    (pkgs.callPackage (import /home/nish/Projects/kbd-backlit) {
-      pkgs = pkgs;
-    })
-  ];
-
-  networking.useDHCP = false;
-  networking.interfaces.wlp0s20f3.useDHCP = true;
 
   console = {
     font = "Lat2-Terminus16";
@@ -49,14 +41,16 @@
   users.defaultUserShell = pkgs.zsh;
   users.users.nish = {
      isNormalUser = true;
-     extraGroups = [ "wheel" ];
+     extraGroups = [ "wheel" "input" "video" "audio" ];
   };
+  users.extraGroups.vboxusers.members = [ "nish" ];
 
   nixpkgs.config.allowUnfree = true;
 
   hardware = {
     pulseaudio.enable = true;
     enableAllFirmware = true;
+    enableRedistributableFirmware = true;
   };
 
   nix = {
@@ -82,5 +76,8 @@
   environment.pathsToLink = [ "/share/zsh" ];
   system.stateVersion = "21.05";
   time.hardwareClockInLocalTime = true;
+
+  virtualisation.virtualbox.host.enable = true;
+  virtualisation.virtualbox.host.enableExtensionPack = true;  
 }
 

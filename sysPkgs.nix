@@ -7,8 +7,11 @@
       gparted
       touchegg
       gnomeExtensions.x11-gestures
+      pciutils
+      lshw
     ];
     programs.steam.enable = true;
+    programs.light.enable = true;
     systemd.packages = [ pkgs.touchegg ];
     systemd.services.touchegg = {
       enable = true;
