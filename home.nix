@@ -102,7 +102,7 @@
     run-scaled
     gnome.gnome-tweaks
     hid-listen
-    unetbootin
+    ms-sys
   ];
 
   nixpkgs.config.allowUnfree = true;
