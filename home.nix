@@ -102,6 +102,7 @@
     run-scaled
     gnome.gnome-tweaks
     hid-listen
+    unetbootin
   ];
 
   nixpkgs.config.allowUnfree = true;
