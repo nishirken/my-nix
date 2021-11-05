@@ -12,7 +12,17 @@
     efi.canTouchEfiVariables = true;
   };
   boot.kernelModules = [ "dell_laptop" ];
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackagesFor (pkgs.linux.override {
+    argsOverride = rec {
+      src = pkgs.fetchurl {
+        url = "mirror://kernel/linux/kernel/v5.x/linux-${version}.tar.gz";
+        sha256 = "4d7908da75ad50a70a0141721e259c2589b7bdcc317f7bd885b80c2ffa689211";
+      };
+      version = "5.15";
+      modDirVersion = "5.15.0";
+      ignoreConfigErrors = true;
+    };
+  });
 
   console = {
     font = "Lat2-Terminus16";
