@@ -139,6 +139,7 @@ let
     run-scaled
     ms-sys
     (makeAutostartItem { name = "libinput-gestures"; package = libinput-gestures; })
+    tmux
   ];
 
   nixpkgs.config.allowUnfree = true;
