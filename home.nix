@@ -18,8 +18,32 @@ let
       enableCompletion = true;
       shellAliases = {
         sudocode = "sudo code --user-data-dir '\.' --no-sandbox";
-        homenix = "code ~/.config/nixpkgs/home.nix";
+        confnix = "code ~/Projects/my-nix/configuration.nix";
+        sysnix = "code ~/Projects/my-nix/sysPkgs.nix";
+        homenix = "code ~/Projects/my-nix/home.nix";
         logout = "gnome-session-save --force-logout";
+        pnow = "gaa 'gcn! --no-verify' gpf";
+        grb = "git rebase -i origin/master";
+        grc = "git rebase --continue";
+        grba = "git rebase -i --autosquash origin/master";
+        go = "git checkout ";
+        gs = "git status ";
+        gl = "git log ";
+        glf = "git log --stat --pretty=short --graph";
+        gd = "git diff ";
+        gst = "git stash ";
+        gm = "git merge ";
+        gc = "git commit ";
+        ga = "git add";
+        gf = "git fetch ";
+        gpl = "git pull ";
+        gps = "git push";
+        gr = "git reset ";
+        grhard = "git reset --hard ";
+        gpf = "git push --force";
+        gb = "git branch ";
+        got = "git checkout --theirs";
+        goo = "git checkout --ours";
       };
       localVariables = {
         NIX_PATH = "$HOME/.nix-defexpr/channels\${NIX_PATH:+:}$NIX_PATH";
@@ -28,6 +52,12 @@ let
         enable = true;
         plugins = [
           "git"
+          "sudo"
+          "npm"
+          "yarn"
+          "node"
+          "stack"
+          "cabal"
         ];
         theme = "lambda";
       };
@@ -99,7 +129,7 @@ let
   home.packages = with pkgs; [
     tor
     myTor
-    thunderbird
+    mailspring
     xdotool
     deluge
     vlc
