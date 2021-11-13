@@ -11,7 +11,6 @@
     systemd-boot.enable = true;
     efi.canTouchEfiVariables = true;
   };
-  boot.kernelModules = [ "dell_laptop" ];
   boot.kernelPackages = pkgs.linuxPackagesFor (pkgs.linux.override {
     argsOverride = rec {
       src = pkgs.fetchurl {
@@ -32,7 +31,11 @@
   services = {
     xserver = {
       enable = true;
-      displayManager.gdm.enable = true;
+      displayManager = {
+        gdm.enable = true;
+        autoLogin.user = "nish";
+        autoLogin.enable = true;
+      };
       desktopManager.gnome.enable = true;
       videoDrivers = [ "modesetting" ];
       useGlamor = true;
@@ -46,6 +49,7 @@
         };
       };
     };
+    accounts-daemon.enable = true;
   };
 
   users.defaultUserShell = pkgs.zsh;
@@ -53,7 +57,6 @@
      isNormalUser = true;
      extraGroups = [ "wheel" "input" "video" "audio" ];
   };
-  users.extraGroups.vboxusers.members = [ "nish" ];
 
   nixpkgs.config.allowUnfree = true;
 
@@ -84,10 +87,8 @@
     EDITOR = "code";
   };
   environment.pathsToLink = [ "/share/zsh" ];
+  environment.shells = with pkgs; [ bashInteractive zsh ];
   system.stateVersion = "21.05";
-  time.hardwareClockInLocalTime = true;
-
-  virtualisation.virtualbox.host.enable = true;
-  virtualisation.virtualbox.host.enableExtensionPack = true;  
+  time.hardwareClockInLocalTime = true;  
 }
 

@@ -1,5 +1,8 @@
-{ config, pkgs, ... }:
+args@{ config, pkgs, ... }:
 
+let
+  myTor = pkgs.callPackage ./tor.nix args;
+  in
 {
   # Let Home Manager install and manage itself.
   programs = {
@@ -64,6 +67,12 @@
     };
   };
 
+  dconf.settings = {
+    "org/gnome/desktop/peripherals/touchpad" = {
+      "tap-to-click" = true;
+    };
+  };
+
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
   home = {
@@ -89,20 +98,17 @@
 
   home.packages = with pkgs; [
     tor
-    tor-browser-bundle-bin
+    myTor
     thunderbird
     xdotool
     deluge
     vlc
     spotify
     tdesktop
-    nheko
     bind
-    drawio
     run-scaled
-    gnome.gnome-tweaks
-    hid-listen
     ms-sys
+    (makeAutostartItem { name = "libinput-gestures"; package = libinput-gestures; })
   ];
 
   nixpkgs.config.allowUnfree = true;
