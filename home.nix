@@ -22,6 +22,10 @@ let
         sysnix = "code ~/Projects/my-nix/sysPkgs.nix";
         homenix = "code ~/Projects/my-nix/home.nix";
         logout = "gnome-session-save --force-logout";
+        cabalgen = "cabal2nix --shell";
+        pbcopy = "xclip -selection clipboard";
+        pbpaste = "xclip -selection clipboard -o";
+        # git
         pnow = "gaa 'gcn! --no-verify' gpf";
         grb = "git rebase -i origin/master";
         grc = "git rebase --continue";
@@ -93,6 +97,14 @@ let
         bbenoist.Nix
         haskell.haskell
         ms-vscode.cpptools
+        eamodio.gitlens
+      ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+        {
+          name = "language-haskell";
+          publisher = "justusadam";
+          version = "3.4.0";
+          sha256 = "fe989d59bc93fa1807ec6b2554060ad6ee51266312bccaa3ea72aafe65a96729";
+        }
       ];
     };
   };

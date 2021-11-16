@@ -7,6 +7,7 @@
       pciutils
       lshw
       home-manager
+      xclip
     ];
     programs.steam.enable = true;
     programs.light.enable = true;
