@@ -69,6 +69,10 @@
   nix = {
     gc.automatic = true;
     optimise.automatic = true;
+    package = pkgs.nixFlakes;
+    extraOptions = ''
+      experimental-features = nix-command flakes
+    '';
   };
 
   fonts = {

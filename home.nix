@@ -15,7 +15,7 @@ let
     };
     zsh = {
       enable = true;
-      enableCompletion = true;
+      enableCompletion = false;
       shellAliases = {
         sudocode = "sudo code --user-data-dir '\.' --no-sandbox";
         confnix = "code ~/Projects/my-nix/configuration.nix";
@@ -152,6 +152,7 @@ let
     ms-sys
     (makeAutostartItem { name = "libinput-gestures"; package = libinput-gestures; })
     tmux
+    nix-prefetch-git
   ];
 
   nixpkgs.config.allowUnfree = true;
