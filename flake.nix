@@ -1,12 +1,19 @@
 {
-  inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-20.03";
+  inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-21.05";
 
   outputs = { self, nixpkgs }: {
 
-    nixosConfigurations.container = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      modules = [ ./configuration.nix ];
+      modules = [
+        # ({ pkgs, ... }: {
+        #   boot.loader = {
+        #     systemd-boot.enable = true;
+        #     efi.canTouchEfiVariables = true;
+        #   };
+        # })
+        ./configuration.nix
+      ];
     };
-
   };
 }
