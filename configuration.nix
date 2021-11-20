@@ -11,17 +11,7 @@
     systemd-boot.enable = true;
     efi.canTouchEfiVariables = true;
   };
-  boot.kernelPackages = pkgs.linuxPackagesFor (pkgs.linux.override {
-    argsOverride = rec {
-      src = pkgs.fetchurl {
-        url = "mirror://kernel/linux/kernel/v5.x/linux-${version}.tar.gz";
-        sha256 = "4d7908da75ad50a70a0141721e259c2589b7bdcc317f7bd885b80c2ffa689211";
-      };
-      version = "5.15";
-      modDirVersion = "5.15.0";
-      ignoreConfigErrors = true;
-    };
-  });
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   console = {
     font = "Lat2-Terminus16";
@@ -92,7 +82,7 @@
   };
   environment.pathsToLink = [ "/share/zsh" ];
   environment.shells = with pkgs; [ bashInteractive zsh ];
+  time.hardwareClockInLocalTime = true;
   system.stateVersion = "21.05";
-  time.hardwareClockInLocalTime = true;  
 }
 
