@@ -17,9 +17,9 @@ let
       enableCompletion = true;
       shellAliases = {
         sudocode = "sudo code --user-data-dir '\.' --no-sandbox";
-        confnix = "code ~/Projects/my-nix/configuration.nix";
-        sysnix = "code ~/Projects/my-nix/sysPkgs.nix";
-        homenix = "code ~/Projects/my-nix/home.nix";
+        codenix = "code ~/Projects/my-nix";
+        sys-switch = "sudo nixos-rebuild switch --flake ~/Projects/my-nix";
+        home-switch = "home-manager switch --flake ~/Projects/my-nix";
         logout = "gnome-session-save --force-logout";
         cabalgen = "cabal2nix --shell";
         pbcopy = "xclip -selection clipboard";
