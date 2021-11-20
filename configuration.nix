@@ -63,8 +63,6 @@
     optimise.automatic = true;
   };
 
-  nixpkgs.config.allowUnfree = true;
-
   fonts = {
     fontconfig.enable = true;
     fontDir.enable = true;
