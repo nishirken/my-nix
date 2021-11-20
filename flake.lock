@@ -5,11 +5,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1637362702,
-        "narHash": "sha256-WFGEXrh2wWHi5DLdUX1qM5T3P5TgmVE6AyM+bVuOaNs=",
+        "lastModified": 1637398047,
+        "narHash": "sha256-H6yh2VvABMhrkjYrPccc0Buak4L9jtFzsb98FsNDM2Q=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "8230decb3f0cb3408607accc93e5d0951ebf3963",
+        "rev": "c82bc787b8990c89f2f7d57df652ce2424129b92",
         "type": "github"
       },
       "original": {
@@ -21,10 +21,10 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1636944046,
-        "narHash": "sha256-74KLDsiWSBsYXKj/ql9EGbw1TbIJRE7clFkhl30HV/c=",
-        "path": "/nix/store/ql6s3pl8gfv6v1n3ffsww0yspbji5lx3-source",
-        "rev": "46251a79f752ae1d46ef733e8e9760b6d3429da4",
+        "lastModified": 1637407427,
+        "narHash": "sha256-2GGKlrLBSL+sDMqY1qoTB4EYEcw4tafu74OWeQEheI8=",
+        "path": "/nix/store/9zqwl307pfffd3ckjqgl87nwbfs37fb3-source",
+        "rev": "2e7159a8724caa72f54914a781732701038639b2",
         "type": "path"
       },
       "original": {
@@ -34,16 +34,32 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1637316267,
-        "narHash": "sha256-hfAA/0W3tycKKOSwP7Xt6FXLG9h/FgCu45wdGubHtV0=",
+        "lastModified": 1637407427,
+        "narHash": "sha256-2GGKlrLBSL+sDMqY1qoTB4EYEcw4tafu74OWeQEheI8=",
+        "owner": "nishirken",
+        "repo": "nixpkgs",
+        "rev": "2e7159a8724caa72f54914a781732701038639b2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nishirken",
+        "ref": "nixos-21.05-zsh-autocomplete-fix",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_unstable": {
+      "locked": {
+        "lastModified": 1637155076,
+        "narHash": "sha256-26ZPNiuzlsnXpt55Q44+yzXvp385aNAfevzVEKbrU5Q=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "24528474d2b3370f2f23879a557ae2cc92a5d50b",
+        "rev": "715f63411952c86c8f57ab9e3e3cb866a015b5f2",
         "type": "github"
       },
       "original": {
         "owner": "NixOS",
-        "ref": "nixos-21.05",
+        "ref": "nixos-unstable",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -51,7 +67,8 @@
     "root": {
       "inputs": {
         "home-manager": "home-manager",
-        "nixpkgs": "nixpkgs_2"
+        "nixpkgs": "nixpkgs_2",
+        "nixpkgs_unstable": "nixpkgs_unstable"
       }
     }
   },

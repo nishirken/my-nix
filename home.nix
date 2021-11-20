@@ -4,7 +4,6 @@ let
   myTor = pkgs.callPackage ./tor.nix args;
   in
 {
-  # Let Home Manager install and manage itself.
   programs = {
     home-manager.enable = true;
     firefox.enable = true;
@@ -15,7 +14,7 @@ let
     };
     zsh = {
       enable = true;
-      enableCompletion = false;
+      enableCompletion = true;
       shellAliases = {
         sudocode = "sudo code --user-data-dir '\.' --no-sandbox";
         confnix = "code ~/Projects/my-nix/configuration.nix";
@@ -150,7 +149,6 @@ let
     ms-sys
     (makeAutostartItem { name = "libinput-gestures"; package = libinput-gestures; })
     tmux
-    nix-prefetch-git
   ];
 
   nixpkgs.config.allowUnfree = true;

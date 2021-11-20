@@ -42,10 +42,12 @@
     accounts-daemon.enable = true;
   };
 
-  users.defaultUserShell = pkgs.zsh;
-  users.users.nish = {
+  users = {
+    defaultUserShell = pkgs.zsh;
+    users.nish = {
      isNormalUser = true;
      extraGroups = [ "wheel" "input" "video" "audio" ];
+    };
   };
 
   nixpkgs.config.allowUnfree = true;
@@ -59,11 +61,9 @@
   nix = {
     gc.automatic = true;
     optimise.automatic = true;
-    package = pkgs.nixFlakes;
-    extraOptions = ''
-      experimental-features = nix-command flakes
-    '';
   };
+
+  nixpkgs.config.allowUnfree = true;
 
   fonts = {
     fontconfig.enable = true;

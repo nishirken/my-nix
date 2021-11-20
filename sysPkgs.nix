@@ -1,4 +1,4 @@
-  {pkgs, ...}:
+  { pkgs, ... }:
 
   {
     environment.systemPackages = with pkgs; [
@@ -6,7 +6,6 @@
       parted
       pciutils
       lshw
-      home-manager
       xclip
     ];
     programs.steam.enable = true;
