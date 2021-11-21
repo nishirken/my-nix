@@ -1,12 +1,6 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [
-      ./hardware-configuration.nix
-      ./sysPkgs.nix
-    ];
-
   boot.loader = {
     systemd-boot.enable = true;
     efi.canTouchEfiVariables = true;
@@ -74,12 +68,6 @@
     ];
   };
 
-  environment.variables = {
-    BROWSER = "firefox";
-    EDITOR = "code";
-  };
-  environment.pathsToLink = [ "/share/zsh" ];
-  environment.shells = with pkgs; [ bashInteractive zsh ];
   time.hardwareClockInLocalTime = true;
   system.stateVersion = "21.05";
 }
