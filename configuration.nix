@@ -43,12 +43,10 @@
   };
 
   users = {
-    mutableUsers = false;
     defaultUserShell = pkgs.zsh;
     users.nish = {
      isNormalUser = true;
      extraGroups = [ "wheel" "input" "video" "audio" ];
-     hashedPassword = "$6$d0oLCDPQF4x3vDsl$mWRrcYAIWpngfvN44ZqmAQWBIcHzhJWK8jL/.pOd/xx5Nf9Y0Q7JsTiKUBpMK.TuZaLTF2pfftmwS9QrbSTT21";
     };
   };
 
