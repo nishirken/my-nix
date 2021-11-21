@@ -1,8 +1,5 @@
 args@{ config, pkgs, ... }:
 
-let
-  myTor = pkgs.callPackage ./tor.nix args;
-  in
 {
   programs = {
     home-manager.enable = true;
@@ -137,7 +134,7 @@ let
 
   home.packages = with pkgs; [
     tor
-    myTor
+    tor-browser-bundle-bin
     mailspring
     xdotool
     deluge

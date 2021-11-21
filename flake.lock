@@ -34,16 +34,16 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1637407427,
-        "narHash": "sha256-2GGKlrLBSL+sDMqY1qoTB4EYEcw4tafu74OWeQEheI8=",
+        "lastModified": 1637489442,
+        "narHash": "sha256-B3ZBQRQb58Wy+iP4JdYI014cktk2oB9ARd1fvrRBudE=",
         "owner": "nishirken",
         "repo": "nixpkgs",
-        "rev": "2e7159a8724caa72f54914a781732701038639b2",
+        "rev": "bed13593540294783b57f2b33e117b22fd61244c",
         "type": "github"
       },
       "original": {
         "owner": "nishirken",
-        "ref": "nixos-21.05-zsh-autocomplete-fix",
+        "ref": "nixos-21.05-patched",
         "repo": "nixpkgs",
         "type": "github"
       }
