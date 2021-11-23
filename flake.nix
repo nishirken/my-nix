@@ -38,7 +38,10 @@
       username = "nish";
       stateVersion = "21.05";
       pkgs = patched;
-      configuration.imports = [ ./home.nix  ];
+      configuration.imports = [
+        ./home.nix
+        ./emacs.nix
+      ];
     };
   };
 }
