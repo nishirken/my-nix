@@ -1,7 +1,11 @@
 { pkgs, ... }:
 
 {
-  programs.vim = {
+  programs.neovim = {
     enable = true;
+    plugins = with pkgs.vimPlugins; [
+      vim-nix
+      haskell-vim
+    ];
   };
-};
+}
