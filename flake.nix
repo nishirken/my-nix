@@ -41,6 +41,7 @@
       configuration.imports = [
         ./home.nix
         ./emacs.nix
+	./vim.nix
       ];
     };
   };
