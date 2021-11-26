@@ -55,6 +55,10 @@
   nix = {
     gc.automatic = true;
     optimise.automatic = true;
+    extraOptions = ''
+      keep-outputs = true
+      keep-derivations = true
+    '';
   };
 
   fonts = {

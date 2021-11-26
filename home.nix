@@ -4,6 +4,11 @@ args@{ config, pkgs, ... }:
   programs = {
     home-manager.enable = true;
     firefox.enable = true;
+    direnv = {
+      enable = true;
+      nix-direnv.enable = true;
+      nix-direnv.enableFlakes = true;
+    };
     git = {
       enable = true;
       userName = "Dmitrii Skurikhin";
@@ -12,6 +17,9 @@ args@{ config, pkgs, ... }:
     zsh = {
       enable = true;
       enableCompletion = true;
+      initExtra = ''
+        eval "$(direnv hook zsh)"
+      '';
       shellAliases = {
         sudocode = "sudo code --user-data-dir '\.' --no-sandbox";
         codenix = "code ~/Projects/my-nix";
@@ -146,6 +154,7 @@ args@{ config, pkgs, ... }:
     ms-sys
     (makeAutostartItem { name = "libinput-gestures"; package = libinput-gestures; })
     tmux
+    cabal2nix
   ];
 
   nixpkgs.config.allowUnfree = true;
