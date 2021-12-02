@@ -53,7 +53,11 @@
   };
 
   nix = {
-    gc.automatic = true;
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 30d";
+    };
     optimise.automatic = true;
     extraOptions = ''
       keep-outputs = true
