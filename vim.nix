@@ -6,6 +6,7 @@
     plugins = with pkgs.vimPlugins; [
       vim-nix
       haskell-vim
+      coc-nvim
     ];
   };
 }
