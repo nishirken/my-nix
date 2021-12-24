@@ -94,29 +94,7 @@ args@{ config, pkgs, ... }:
           blinking = "On";
         };
       };
-    };
-    vscode = {
-      enable = true;
-      extensions = with pkgs.vscode-extensions; [ 
-        bbenoist.Nix
-        haskell.haskell
-        ms-vscode.cpptools
-        eamodio.gitlens
-      ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
-        {
-          name = "language-haskell";
-          publisher = "justusadam";
-          version = "3.4.0";
-          sha256 = "fe989d59bc93fa1807ec6b2554060ad6ee51266312bccaa3ea72aafe65a96729";
-        }
-        {
-          name = "vscode-direnv";
-          publisher = "cab404";
-          version = "1.0.0";
-          sha256 = "fa72c7f93f6fe93402a8a670e873cdfd97af43ae45566d92028d95f5179c3376";
-        }
-      ];
-    };
+    }; 
   };
 
   dconf.settings = {
@@ -160,8 +138,8 @@ args@{ config, pkgs, ... }:
     ms-sys
     (makeAutostartItem { name = "libinput-gestures"; package = libinput-gestures; })
     tmux
-    cabal2nix
     nodejs
+    openvpn
   ];
 
   nixpkgs.config.allowUnfree = true;
