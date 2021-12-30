@@ -44,7 +44,7 @@
         ./programs/vim.nix
         ./programs/code.nix
         ./programs/zsh.nix
-        ./programs/alacritty.nix
+        ./programs/terminal.nix
       ];
     };
   };

@@ -7,25 +7,21 @@
       vim-nix
       haskell-vim
       coc-nvim
-      vim-one
+      nord-nvim
+      vim-sleuth # auto tabsize
     ];
     vimAlias = true;
     extraConfig = ''
       nnoremap <silent> h :call CocActionAsync('doHover')<cr>
 
-      colorscheme one
-      let g:one_allow_italics = 1
+      set termguicolors
+      colorscheme nord
 
-      let hr = (strftime('%H'))
-      if hr >= 20 || hr <= 9
-        set background=dark
-      endif
-
-      if exists('+termguicolors')
-        let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-        let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-        set termguicolors
-      endif
+      " restore alacritty cursor
+      augroup RestoreCursorShapeOnExit
+        autocmd!
+        autocmd VimLeave * set guicursor=a:ver15:blinkwait750-blinkoff750-blinkon750
+      augroup END
     '';
     coc = {
       enable = true;

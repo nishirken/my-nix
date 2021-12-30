@@ -13,7 +13,7 @@ args@{ config, pkgs, ... }:
       enable = true;
       userName = "Dmitrii Skurikhin";
       userEmail = "dmitrii.sk@gmail.com";
-    }; 
+    };
   };
 
   dconf.settings = {
@@ -56,7 +56,6 @@ args@{ config, pkgs, ... }:
     run-scaled
     ms-sys
     (makeAutostartItem { name = "libinput-gestures"; package = libinput-gestures; })
-    tmux
     nodejs
     openvpn
     libreoffice
