@@ -140,6 +140,7 @@ args@{ config, pkgs, ... }:
     tmux
     nodejs
     openvpn
+    libreoffice
   ];
 
   nixpkgs.config.allowUnfree = true;
