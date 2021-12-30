@@ -43,6 +43,8 @@
         ./emacs.nix
         ./vim.nix
         ./code.nix
+        ./zsh.nix
+        ./alacritty.nix
       ];
     };
   };
