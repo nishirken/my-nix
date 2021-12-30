@@ -40,11 +40,11 @@
       pkgs = stable;
       configuration.imports = [
         ./home.nix
-        ./emacs.nix
-        ./vim.nix
-        ./code.nix
-        ./zsh.nix
-        ./alacritty.nix
+        ./programs/emacs.nix
+        ./programs/vim.nix
+        ./programs/code.nix
+        ./programs/zsh.nix
+        ./programs/alacritty.nix
       ];
     };
   };
