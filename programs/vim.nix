@@ -7,8 +7,9 @@
       vim-nix
       haskell-vim
       coc-nvim
-      nord-nvim
+      nord-nvim # color scheme
       vim-sleuth # auto tabsize
+      neogit
     ];
     vimAlias = true;
     extraConfig = ''
@@ -16,6 +17,8 @@
 
       set termguicolors
       colorscheme nord
+      let g:nord_contrast = v:true
+      let g:nord_borders = v:true
 
       " restore alacritty cursor
       augroup RestoreCursorShapeOnExit
