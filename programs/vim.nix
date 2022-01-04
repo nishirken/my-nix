@@ -10,6 +10,8 @@
       nord-nvim # color scheme
       vim-sleuth # auto tabsize
       neogit
+      # files search
+      fzf-vim
     ];
     vimAlias = true;
     extraConfig = ''

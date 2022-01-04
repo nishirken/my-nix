@@ -59,6 +59,8 @@ args@{ config, pkgs, ... }:
     nodejs
     openvpn
     libreoffice
+    fzf
+    silver-searcher
   ];
 
   nixpkgs.config.allowUnfree = true;

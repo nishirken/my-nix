@@ -4,7 +4,7 @@
     environment = with pkgs; {
       variables = {
         BROWSER = "firefox";
-        EDITOR = "code";
+        EDITOR = "nvim";
       };
       gnome.excludePackages = [ xterm ];
       shells = [ zsh ];
