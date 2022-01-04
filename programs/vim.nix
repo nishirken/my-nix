@@ -15,6 +15,8 @@
     extraConfig = ''
       nnoremap <silent> h :call CocActionAsync('doHover')<cr>
 
+      set tabstop=4
+
       set termguicolors
       colorscheme nord
       let g:nord_contrast = v:true
