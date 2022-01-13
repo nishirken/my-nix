@@ -44,8 +44,7 @@ args@{ config, pkgs, ... }:
   };
 
   home.packages = with pkgs; [
-    tor
-    tor-browser-bundle-bin
+    brave
     mailspring
     xdotool
     deluge
