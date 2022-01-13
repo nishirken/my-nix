@@ -6,12 +6,14 @@
     plugins = with pkgs.vimPlugins; [
       vim-nix
       haskell-vim
+      typescript-vim
+      vim-css-color
       coc-nvim
       nord-nvim # color scheme
       vim-sleuth # auto tabsize
       neogit
-      # files search
-      fzf-vim
+      fzf-vim # files search
+      git-blame-nvim
     ];
     vimAlias = true;
     extraConfig = ''
