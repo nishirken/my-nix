@@ -48,6 +48,7 @@
 
   hardware = {
     pulseaudio.enable = true;
+    bluetooth.enable = true;
     enableAllFirmware = true;
     enableRedistributableFirmware = true;
   };

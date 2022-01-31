@@ -20,4 +20,5 @@
 
     programs.steam.enable = true;
     programs.light.enable = true;
+    services.blueman.enable = true;
   }
