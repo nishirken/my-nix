@@ -5,6 +5,7 @@
       enable = true;
       enableCompletion = true;
       initExtra = ''
+        set QT_AUTO_SCREEN_SCALE_FACTOR=true
         eval "$(direnv hook zsh)"
       '';
       shellAliases = {
