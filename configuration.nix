@@ -44,6 +44,14 @@
     };
   };
 
+  systemd.user.services.graphical = {
+    script = ''
+      set QT_AUTO_SCREEN_SCALE_FACTOR=true
+    '';
+    wantedBy = [ "graphical-session.target" ];
+    partOf = [ "graphical-session.target" ];
+  };
+
   nixpkgs.config.allowUnfree = true;
 
   hardware = {
