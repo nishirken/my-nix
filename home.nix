@@ -60,6 +60,7 @@ args@{ config, pkgs, ... }:
     libreoffice
     fzf
     silver-searcher
+    bat
   ];
 
   nixpkgs.config.allowUnfree = true;
