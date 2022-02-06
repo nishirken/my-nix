@@ -14,6 +14,7 @@
       neogit
       fzf-vim # files search
       git-blame-nvim
+      vim-visual-multi
     ];
     vimAlias = true;
     extraConfig = ''
