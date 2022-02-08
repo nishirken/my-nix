@@ -18,7 +18,8 @@
     ];
     vimAlias = true;
     extraConfig = ''
-      nnoremap <silent> h :call CocActionAsync('doHover')<cr>
+      nnoremap <silent> gh :call CocActionAsync('doHover')<cr>
+      nnoremap <silent> gd :call CocAction('jumpDefinition', 'tab drop')<cr>
 
       set tabstop=4
 
@@ -47,7 +48,7 @@
               "package.yaml"
               "hie.yaml"
             ];
-            filetypes = [ "haskell" "lhaskell" ];
+            filetypes = [ "haskell" "lhaskell" "hs" ];
           };
         };
       };
