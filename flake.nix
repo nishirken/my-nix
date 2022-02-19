@@ -1,9 +1,18 @@
 {
-  inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-21.11";
-  inputs.nixpkgs_unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
-  inputs.home-manager.url = "github:nix-community/home-manager/release-21.11";
+  inputs = {
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-21.11";
+    nixpkgs_unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
+    home-manager.url = "github:nix-community/home-manager/release-21.11";
+  };
 
-  outputs = { self, nixpkgs, nixpkgs_unstable, home-manager, ... }:
+  outputs = {
+    self,
+    nixpkgs,
+    nixpkgs_unstable,
+    home-manager,
+    my-templates,
+    ... 
+  }:
 
   let
     stable = (import nixpkgs { system = "x86_64-linux"; });
