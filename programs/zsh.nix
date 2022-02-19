@@ -9,7 +9,7 @@
       '';
       shellAliases = {
         sudocode = "sudo code --user-data-dir '\.' --no-sandbox";
-        codenix = "code ~/Projects/my-nix";
+        vimnix = "nvim ~/Projects/my-nix";
         sys-switch = "sudo nixos-rebuild switch --flake ~/Projects/my-nix";
         home-switch = "home-manager switch --flake ~/Projects/my-nix";
         logout = "gnome-session-save --force-logout";
