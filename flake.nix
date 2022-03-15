@@ -10,7 +10,6 @@
     nixpkgs,
     nixpkgs_unstable,
     home-manager,
-    my-templates,
     ... 
   }:
 

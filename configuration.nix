@@ -12,7 +12,15 @@
     keyMap = "us";
   };
 
+
+  security.rtkit.enable = true;
   services = {
+    pipewire = {
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
+    };
     xserver = {
       enable = true;
       displayManager = {
@@ -40,7 +48,7 @@
     defaultUserShell = pkgs.zsh;
     users.nish = {
      isNormalUser = true;
-     extraGroups = [ "wheel" "input" "video" "audio" ];
+     extraGroups = [ "wheel" "input" ];
     };
   };
 
@@ -55,18 +63,7 @@
   nixpkgs.config.allowUnfree = true;
 
   hardware = {
-    pulseaudio = {
-      enable = true;
-      configFile = pkgs.writeText "default.pa" ''
-        load-module module-bluetooth-policy
-        load-module module-bluetooth-discover
-        ## module fails to load with 
-        ##   module-bluez5-device.c: Failed to get device path from module arguments
-        ##   module.c: Failed to load module "module-bluez5-device" (argument: ""): initialization failed.
-        # load-module module-bluez5-device
-        # load-module module-bluez5-discover
-      '';
-    };
+    pulseaudio.enable = false;
     bluetooth.enable = true;
     enableAllFirmware = true;
     enableRedistributableFirmware = true;

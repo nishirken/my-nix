@@ -61,6 +61,8 @@ args@{ config, pkgs, ... }:
     fzf
     silver-searcher
     bat
+    skypeforlinux
+    protonvpn-gui
   ];
 
   nixpkgs.config.allowUnfree = true;
