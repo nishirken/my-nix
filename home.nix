@@ -62,7 +62,8 @@ args@{ config, pkgs, ... }:
     silver-searcher
     bat
     skypeforlinux
-    protonvpn-gui
+    templates
+    hcw
   ];
 
   nixpkgs.config.allowUnfree = true;
