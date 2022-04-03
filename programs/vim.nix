@@ -15,13 +15,14 @@
       fzf-vim # files search
       git-blame-nvim
       vim-visual-multi
+      vim-airline
     ];
     vimAlias = true;
     extraConfig = ''
       nnoremap <silent> gh :call CocActionAsync('doHover')<cr>
       nnoremap <silent> gd :call CocAction('jumpDefinition', 'tab drop')<cr>
 
-      set tabstop=4
+      set tabstop=2
 
       set termguicolors
       colorscheme nord
@@ -33,6 +34,9 @@
         autocmd!
         autocmd VimLeave * set guicursor=a:ver15:blinkwait750-blinkoff750-blinkon750
       augroup END
+
+      :autocmd FileChangedShell, BufWritePost *.hs :CocRestart
+      :autocmd FileChangedShell, BufWritePost *.cabal :CocRestart
     '';
     coc = {
       enable = true;
