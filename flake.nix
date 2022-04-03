@@ -5,6 +5,7 @@
     home-manager.url = "github:nix-community/home-manager/release-21.11";
     templates.url = "/home/nish/Projects/templates";
     hcw.url = "github:nishirken/hspec-cabal-watch/master";
+    hcli.url = "github:nishirken/hcli/master";
   };
 
   outputs = {
@@ -14,6 +15,7 @@
     home-manager,
     templates,
     hcw,
+    hcli,
     ... 
   }: {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
@@ -49,6 +51,7 @@
         overlays = [(final: _: {
           templates = templates.defaultPackage.${final.system};
           hcw = hcw.defaultPackage.${final.system};
+          hcli = hcli.defaultPackage.${final.system};
         })];
       });
       configuration.imports = [

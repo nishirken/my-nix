@@ -64,6 +64,7 @@ args@{ config, pkgs, ... }:
     skypeforlinux
     templates
     hcw
+    hcli
   ];
 
   nixpkgs.config.allowUnfree = true;
