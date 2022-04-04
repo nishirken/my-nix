@@ -16,6 +16,7 @@
       git-blame-nvim
       vim-visual-multi
       vim-airline
+      vim-fugitive
     ];
     vimAlias = true;
     extraConfig = ''
@@ -34,9 +35,6 @@
         autocmd!
         autocmd VimLeave * set guicursor=a:ver15:blinkwait750-blinkoff750-blinkon750
       augroup END
-
-      :autocmd FileChangedShell, BufWritePost *.hs :CocRestart
-      :autocmd FileChangedShell, BufWritePost *.cabal :CocRestart
     '';
     coc = {
       enable = true;
