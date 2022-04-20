@@ -65,6 +65,8 @@ args@{ config, pkgs, ... }:
     templates
     hcw
     hcli
+    obelisk
+    docker
   ];
 
   nixpkgs.config.allowUnfree = true;

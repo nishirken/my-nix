@@ -6,6 +6,10 @@
     templates.url = "/home/nish/Projects/templates";
     hcw.url = "github:nishirken/hspec-cabal-watch/master";
     hcli.url = "github:nishirken/hcli/master";
+    obelisk = {
+      url = "github:obsidiansystems/obelisk/master";
+      flake = false;
+    };
   };
 
   outputs = {
@@ -16,6 +20,7 @@
     templates,
     hcw,
     hcli,
+    obelisk,
     ... 
   }: {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
@@ -52,6 +57,7 @@
           templates = templates.defaultPackage.${final.system};
           hcw = hcw.defaultPackage.${final.system};
           hcli = hcli.defaultPackage.${final.system};
+          obelisk = (import obelisk { system = final.system; }).command;
         })];
       });
       configuration.imports = [

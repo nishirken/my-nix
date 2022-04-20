@@ -1122,6 +1122,23 @@
         "type": "github"
       }
     },
+    "obelisk": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1647001645,
+        "narHash": "sha256-iVs8Yc2CHvSzqGiDAjxiPU6lP2xe3roLxd6m3r5ntGk=",
+        "owner": "obsidiansystems",
+        "repo": "obelisk",
+        "rev": "e3ec75f6988eed47189dd20f8c8514748b33ea81",
+        "type": "github"
+      },
+      "original": {
+        "owner": "obsidiansystems",
+        "ref": "master",
+        "repo": "obelisk",
+        "type": "github"
+      }
+    },
     "old-ghc-nix": {
       "flake": false,
       "locked": {
@@ -1179,6 +1196,7 @@
         "hcw": "hcw",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs_4",
+        "obelisk": "obelisk",
         "templates": "templates"
       }
     },
