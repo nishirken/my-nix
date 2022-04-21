@@ -67,6 +67,7 @@ args@{ config, pkgs, ... }:
     hcli
     obelisk
     docker
+    audacious
   ];
 
   nixpkgs.config.allowUnfree = true;
