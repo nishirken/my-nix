@@ -16,6 +16,7 @@
       git-blame-nvim
       vim-visual-multi
       vim-airline
+      vim-airline-themes
       vim-fugitive
     ];
     vimAlias = true;
@@ -24,11 +25,14 @@
       nnoremap <silent> gd :call CocAction('jumpDefinition', 'tab drop')<cr>
 
       set tabstop=2
+      set shiftwidth=2
+      set expandtab
 
       set termguicolors
       colorscheme nord
       let g:nord_contrast = v:true
       let g:nord_borders = v:true
+      let g:airline_theme='base16'
 
       " restore alacritty cursor
       augroup RestoreCursorShapeOnExit
