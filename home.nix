@@ -68,6 +68,13 @@ args@{ config, pkgs, ... }:
     obelisk
     docker
     audacious
+    zoom-us
+    chromium
+    gimp
+    libheif # for jpg
+    jpegoptim # for jpg
+    optipng # for png
+    imagemagick
   ];
 
   nixpkgs.config.allowUnfree = true;
