@@ -65,7 +65,6 @@ args@{ config, pkgs, ... }:
     templates
     hcw
     hcli
-    obelisk
     docker
     audacious
     zoom-us
