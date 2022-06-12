@@ -7,7 +7,6 @@ args@{ config, pkgs, ... }:
     direnv = {
       enable = true;
       nix-direnv.enable = true;
-      nix-direnv.enableFlakes = true;
     };
     git = {
       enable = true;

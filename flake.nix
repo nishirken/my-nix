@@ -1,8 +1,8 @@
 {
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-21.11";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-22.05";
     # nixpkgs_unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
-    home-manager.url = "github:nix-community/home-manager/release-21.11";
+    home-manager.url = "github:nix-community/home-manager/release-22.05";
     templates.url = "/home/nish/Projects/templates";
     hcw.url = "github:nishirken/hspec-cabal-watch/master";
     hcli.url = "github:nishirken/hcli/master";
@@ -34,7 +34,6 @@
 
         ({ pkgs, ... }: {
           nix.extraOptions = "experimental-features = nix-command flakes";
-          nix.package = pkgs.nix_2_4;
           nix.registry.nixpkgs.flake = nixpkgs;
           home-manager.useUserPackages = true;
           home-manager.useGlobalPkgs = true;
@@ -50,9 +49,10 @@
       system = "x86_64-linux";
       homeDirectory = "/home/nish";
       username = "nish";
-      stateVersion = "21.11";
+      stateVersion = "22.05";
       pkgs = (import nixpkgs {
         system = "x86_64-linux";
+        config.allowUnfree = true;
         overlays = [(final: _: {
           templates = templates.defaultPackage.${final.system};
           hcw = hcw.defaultPackage.${final.system};

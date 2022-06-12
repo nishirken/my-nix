@@ -5,7 +5,6 @@
       enable = true;
       extensions = with pkgs.vscode-extensions; [
         haskell.haskell
-        ms-vscode.cpptools
         eamodio.gitlens
       ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
         {
