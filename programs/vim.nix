@@ -18,6 +18,7 @@
       vim-airline
       vim-airline-themes
       vim-fugitive
+      coc-eslint
     ];
     vimAlias = true;
     extraConfig = ''
@@ -56,6 +57,9 @@
             ];
             filetypes = [ "haskell" "lhaskell" "hs" ];
           };
+        };
+        eslint = {
+          autoFixOnSave = true;
         };
       };
     };
