@@ -73,6 +73,8 @@ args@{ config, pkgs, ... }:
     jpegoptim # for jpg
     optipng # for png
     imagemagick
+    jetbrains.idea-community
+    jq
   ];
 
   nixpkgs.config.allowUnfree = true;
