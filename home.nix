@@ -43,7 +43,6 @@ args@{ config, pkgs, ... }:
   };
 
   home.packages = with pkgs; [
-    brave
     mailspring
     xdotool
     deluge
@@ -75,6 +74,7 @@ args@{ config, pkgs, ... }:
     imagemagick
     jetbrains.idea-community
     jq
+    morgen # calendar
   ];
 
   nixpkgs.config.allowUnfree = true;

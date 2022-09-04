@@ -4,6 +4,9 @@
   boot.loader = {
     systemd-boot.enable = true;
     efi.canTouchEfiVariables = true;
+    grub = {
+      configurationLimit = 10;
+    };
   };
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
@@ -11,7 +14,6 @@
     font = "Lat2-Terminus16";
     keyMap = "us";
   };
-
 
   security.rtkit.enable = true;
   services = {
