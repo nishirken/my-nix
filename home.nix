@@ -75,6 +75,9 @@ args@{ config, pkgs, ... }:
     jetbrains.idea-community
     jq
     morgen # calendar
+    postman
+    dbeaver
+    openssh
   ];
 
   nixpkgs.config.allowUnfree = true;
