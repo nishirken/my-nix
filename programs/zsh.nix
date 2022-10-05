@@ -14,6 +14,11 @@
         home-switch = "home-manager switch --flake ~/Projects/my-nix";
         logout = "gnome-session-save --force-logout";
         cabalgen = "cabal2nix --shell";
+        cache = ''
+          nix flake archive --json \
+            | jq -r '.path,(.inputs|to_entries[].value.path)' \
+            | cachix push nishirken
+        '';
         pbcopy = "xclip -selection clipboard";
         pbpaste = "xclip -selection clipboard -o";
         # git

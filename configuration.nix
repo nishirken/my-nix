@@ -50,7 +50,7 @@
     defaultUserShell = pkgs.zsh;
     users.nish = {
      isNormalUser = true;
-     extraGroups = [ "wheel" "input" ];
+     extraGroups = [ "wheel" "input" "podman" ];
     };
   };
 
@@ -82,14 +82,22 @@
       keep-outputs = true
       keep-derivations = true
     '';
-    binaryCachePublicKeys = [
-      "hydra.iohk.io:f/Ea+s+dFdN+3Y/G+FDgSq+a5NEWhJGzdjvKNGv0/EQ="
-      "ryantrinkle.com-1:JJiAKaRv9mWgpVAz8dwewnZe0AzzEAzPkagE9SP5NWI="
-    ];
-    binaryCaches = [
-      "https://hydra.iohk.io"
-      "https://nixcache.reflex-frp.org"
-    ];
+    trustedUsers = [ "root" "nish" ];
+    settings = {
+      substituters = [
+        "https://nix-community.cachix.org"
+        "https://nishirken.cachix.org"
+        "https://cache.nixos.org"
+        "https://hydra.iohk.io"
+        "https://nixcache.reflex-frp.org"
+      ];
+      trusted-public-keys = [
+        "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+        "nishirken.cachix.org-1:AcLJoEJYmCuyAjs5GmzmZDM4EuT2DAGH3mFIC3KvkYM="
+        "hydra.iohk.io:f/Ea+s+dFdN+3Y/G+FDgSq+a5NEWhJGzdjvKNGv0/EQ="
+        "ryantrinkle.com-1:JJiAKaRv9mWgpVAz8dwewnZe0AzzEAzPkagE9SP5NWI="
+      ];
+    };
   };
 
   fonts = {
@@ -105,5 +113,14 @@
 
   time.hardwareClockInLocalTime = true;
   system.stateVersion = "22.05";
+
+  virtualisation = {
+    docker.enable = false;
+    podman = {
+      enable = true;
+      dockerSocket.enable = true;
+      defaultNetwork.dnsname.enable = true;
+    };
+  };
 }
 

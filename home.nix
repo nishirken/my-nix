@@ -63,7 +63,7 @@ args@{ config, pkgs, ... }:
     templates
     hcw
     hcli
-    docker
+    docker-client
     audacious
     zoom-us
     chromium
@@ -78,6 +78,7 @@ args@{ config, pkgs, ... }:
     postman
     dbeaver
     openssh
+    cachix
   ];
 
   nixpkgs.config.allowUnfree = true;
