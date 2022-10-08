@@ -79,6 +79,7 @@ args@{ config, pkgs, ... }:
     dbeaver
     openssh
     cachix
+    podman-compose
   ];
 
   nixpkgs.config.allowUnfree = true;
