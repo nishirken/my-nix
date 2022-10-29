@@ -7,6 +7,7 @@
       vim-nix
       haskell-vim
       typescript-vim
+      purescript-vim
       vim-css-color
       coc-nvim
       nord-nvim # color scheme
@@ -56,6 +57,19 @@
               "hie.yaml"
             ];
             filetypes = [ "haskell" "lhaskell" "hs" ];
+          };
+          purescript = {
+            command = "purescript-language-server";
+            args = ["--stdio"];
+            filetypes = ["purs" "purescript"];
+            traceserver = "off";
+            rootPatterns = ["bower.json" "psc-package.json" "spago.dhall"];
+            settings = {
+              purescript = {
+                addSpagoSources = true;
+                formatter = "purs-tidy";
+              };
+            };
           };
         };
         eslint = {
