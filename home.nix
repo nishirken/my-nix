@@ -80,6 +80,7 @@ args@{ config, pkgs, ... }:
     openssh
     cachix
     podman-compose
+    gitkraken
   ];
 
   nixpkgs.config.allowUnfree = true;
