@@ -44,7 +44,7 @@
         gb = "git branch ";
         got = "git checkout --theirs";
         goo = "git checkout --ours";
-        gup = "gaa && gcn! && gpf";
+        gaapf = "gaa && gcn! && gpf";
       };
       localVariables = {
         NIX_PATH = "$HOME/.nix-defexpr/channels\${NIX_PATH:+:}$NIX_PATH";
