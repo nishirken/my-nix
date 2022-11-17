@@ -114,6 +114,8 @@
   time.hardwareClockInLocalTime = true;
   system.stateVersion = "22.05";
 
+  networking.networkmanager.enable = true;
+
   virtualisation = {
     docker.enable = false;
     podman = {
