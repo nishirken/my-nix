@@ -81,6 +81,7 @@ args@{ config, pkgs, ... }:
     cachix
     podman-compose
     gitkraken
+    lutris
   ];
 
   nixpkgs.config.allowUnfree = true;
