@@ -28,6 +28,9 @@ args@{ config, pkgs, ... }:
       layout = "us,ru";
       options = [ "grp:super_space_toggle" ];
     };
+    homeDirectory = "/home/nish";
+    username = "nish";
+    stateVersion = "22.11";
   };
 
   gtk = {
@@ -82,6 +85,7 @@ args@{ config, pkgs, ... }:
     podman-compose
     gitkraken
     lutris
+    wine
   ];
 
   nixpkgs.config.allowUnfree = true;

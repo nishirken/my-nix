@@ -5,7 +5,7 @@
       enable = true;
       settings = {
         window = {
-          gtk_theme_variant = "Orchis";
+          decorations_theme_variant = "Orchis";
           startup_mode = "Fullscreen";
         };
         env = {
