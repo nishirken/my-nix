@@ -84,6 +84,7 @@ args@{ config, pkgs, ... }:
     cachix
     podman-compose
     gitkraken
+    lutris
     wine64
   ];
 

@@ -14,7 +14,7 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-22.11";
     # nixpkgs_unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager/release-22.11";
-    templates.url = "/home/nish/Projects/templates";
+    templates.url = "github:nishirken/templates/master";
     hcw.url = "github:nishirken/hspec-cabal-watch/master";
     hcli.url = "github:nishirken/hcli/master";
   };
