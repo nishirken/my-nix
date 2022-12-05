@@ -1,4 +1,15 @@
 {
+  nixConfig = {
+    extra-substituters = ''
+      https://nix-community.cachix.org
+      https://nishirken.cachix.org
+    '';
+    extra-trusted-public-keys = ''
+      nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs=
+      nishirken.cachix.org-1:AcLJoEJYmCuyAjs5GmzmZDM4EuT2DAGH3mFIC3KvkYM=
+    '';
+  };
+
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-22.11";
     # nixpkgs_unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
