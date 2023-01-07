@@ -20,6 +20,7 @@
       vim-airline-themes
       vim-fugitive
       coc-eslint
+      coc-tsserver
     ];
     vimAlias = true;
     extraConfig = ''
@@ -74,6 +75,7 @@
         };
         eslint = {
           autoFixOnSave = true;
+          quiet = true;
         };
       };
     };
