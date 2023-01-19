@@ -56,10 +56,17 @@
         system = "x86_64-linux";
         config.allowUnfree = true;
         config.permittedInsecurePackages = [ "electron-15.5.2" ];
-        overlays = [(final: _: {
+        overlays = [(final: prev: {
           templates = templates.defaultPackage.${final.system};
           hcw = hcw.defaultPackage.${final.system};
           hcli = hcli.defaultPackage.${final.system};
+          zoom-us = prev.zoom-us.overrideAttrs (attrs: {
+            nativeBuildInputs = attrs.nativeBuildInputs or [] ++ [ prev.bbe ];
+            postFixup = ''
+              cp $out/opt/zoom/zoom .
+              bbe -e 's/\0manjaro\0/\0nixos\0\0\0/' < zoom > $out/opt/zoom/zoom
+            ''+ attrs.postFixup or "";
+          });
         })];
       });
       modules = [
