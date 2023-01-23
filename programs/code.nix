@@ -6,6 +6,7 @@
       extensions = with pkgs.vscode-extensions; [
         haskell.haskell
         eamodio.gitlens
+        svelte.svelte-vscode
       ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
         {
           name = "language-haskell";
