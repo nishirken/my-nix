@@ -86,6 +86,7 @@ args@{ config, pkgs, ... }:
     gitkraken
     lutris
     wine64
+    brave
   ];
 
   nixpkgs.config.allowUnfree = true;
