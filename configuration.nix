@@ -15,6 +15,10 @@
     keyMap = "us";
   };
 
+  programs = {
+    openvpn3.enable = true;
+  };
+
   security.rtkit.enable = true;
   services = {
     pipewire = {
@@ -27,8 +31,6 @@
       enable = true;
       displayManager = {
         gdm.enable = true;
-        autoLogin.user = "nish";
-        autoLogin.enable = true;
       };
       desktopManager.gnome.enable = true;
       videoDrivers = [ "modesetting" ];
@@ -50,7 +52,11 @@
     users.nish = {
      isNormalUser = true;
      extraGroups = [ "wheel" "input" "podman" ];
-    };
+   };
+   users.work = {
+     isNormalUser = true;
+     extraGroups = [ "wheel" "input" "docker" ];
+   };
   };
 
   systemd.user.services.graphical = {
@@ -83,7 +89,7 @@
       keep-derivations = true
     '';
     settings = {
-      trusted-users = [ "root" "nish" ];
+      trusted-users = [ "root" "nish" "work" ];
       substituters = [
         "https://cache.nixos.org"
       ];

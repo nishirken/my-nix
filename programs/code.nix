@@ -7,6 +7,7 @@
         haskell.haskell
         eamodio.gitlens
         svelte.svelte-vscode
+        ms-python.python
       ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
         {
           name = "language-haskell";

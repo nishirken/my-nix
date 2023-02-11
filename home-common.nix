@@ -11,7 +11,6 @@ args@{ config, pkgs, ... }:
     git = {
       enable = true;
       userName = "Dmitrii Skurikhin";
-      userEmail = "dmitrii.sk@gmail.com";
     };
   };
 
@@ -28,8 +27,6 @@ args@{ config, pkgs, ... }:
       layout = "us,ru";
       options = [ "grp:super_space_toggle" ];
     };
-    homeDirectory = "/home/nish";
-    username = "nish";
     stateVersion = "22.11";
   };
 
@@ -44,50 +41,6 @@ args@{ config, pkgs, ... }:
       package= pkgs.tela-icon-theme;
     };
   };
-
-  home.packages = with pkgs; [
-    mailspring
-    xdotool
-    deluge
-    vlc
-    spotify
-    tdesktop
-    bind
-    run-scaled
-    ms-sys
-    (makeAutostartItem { name = "libinput-gestures"; package = libinput-gestures; })
-    nodejs
-    openvpn
-    libreoffice
-    fzf
-    silver-searcher
-    bat
-    skypeforlinux
-    templates
-    hcw
-    hcli
-    docker-client
-    audacious
-    zoom-us
-    chromium
-    gimp
-    libheif # for jpg
-    jpegoptim # for jpg
-    optipng # for png
-    imagemagick
-    jetbrains.idea-community
-    jq
-    morgen # calendar
-    postman
-    dbeaver
-    openssh
-    cachix
-    podman-compose
-    gitkraken
-    lutris
-    wine64
-    brave
-  ];
 
   nixpkgs.config.allowUnfree = true;
 }

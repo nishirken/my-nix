@@ -28,7 +28,21 @@
     hcw,
     hcli,
     ... 
-  }: {
+  }: let
+      patchedZoom = pkgs: pkgs.zoom-us.overrideAttrs (attrs: {
+         nativeBuildInputs = attrs.nativeBuildInputs or [] ++ [ pkgs.bbe ];
+         postFixup = ''
+           cp $out/opt/zoom/zoom .
+           bbe -e 's/\0manjaro\0/\0nixos\0\0\0/' < zoom > $out/opt/zoom/zoom
+         ''+ attrs.postFixup or "";
+       });
+      modules = [
+        ./home-common.nix
+        ./programs/vim.nix
+        ./programs/code.nix
+        ./programs/zsh.nix
+        ./programs/terminal.nix
+      ]; in {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
@@ -60,23 +74,22 @@
           templates = templates.defaultPackage.${final.system};
           hcw = hcw.defaultPackage.${final.system};
           hcli = hcli.defaultPackage.${final.system};
-          zoom-us = prev.zoom-us.overrideAttrs (attrs: {
-            nativeBuildInputs = attrs.nativeBuildInputs or [] ++ [ prev.bbe ];
-            postFixup = ''
-              cp $out/opt/zoom/zoom .
-              bbe -e 's/\0manjaro\0/\0nixos\0\0\0/' < zoom > $out/opt/zoom/zoom
-            ''+ attrs.postFixup or "";
-          });
+          zoom-us = patchedZoom prev;
         })];
       });
-      modules = [
-        ./home.nix
-        ./programs/emacs.nix
-        ./programs/vim.nix
-        ./programs/code.nix
-        ./programs/zsh.nix
-        ./programs/terminal.nix
-      ];
+      modules = modules ++ [./home-nish.nix];
+    };
+
+    homeConfigurations.work = home-manager.lib.homeManagerConfiguration {
+      pkgs = (import nixpkgs {
+        system = "x86_64-linux";
+        config.allowUnfree = true;
+        config.permittedInsecurePackages = [ "electron-15.5.2" ];
+        overlays = [(final: prev: {
+          zoom-us = patchedZoom prev;
+        })];
+      });
+      modules = modules ++ [./home-work.nix];
     };
   };
 }

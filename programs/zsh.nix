@@ -45,6 +45,9 @@
         got = "git checkout --theirs";
         goo = "git checkout --ours";
         gaapf = "gaa && gcn! && gpf";
+
+        vpnstart = "openvpn3 session-start --config ";
+        vpnstop = "openvpn3 session-manage -D --config ";
       };
       localVariables = {
         NIX_PATH = "$HOME/.nix-defexpr/channels\${NIX_PATH:+:}$NIX_PATH";
