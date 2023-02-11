@@ -15,9 +15,7 @@ args@{ config, pkgs, ... }:
   };
 
   dconf.settings = {
-    "org/gnome/desktop/peripherals/touchpad" = {
-      "tap-to-click" = true;
-    };
+    "org/gnome/desktop/peripherals/touchpad" = { "tap-to-click" = true; };
   };
 
   # Home Manager needs a bit of information about you and the
@@ -38,7 +36,7 @@ args@{ config, pkgs, ... }:
     };
     iconTheme = {
       name = "Tela";
-      package= pkgs.tela-icon-theme;
+      package = pkgs.tela-icon-theme;
     };
   };
 

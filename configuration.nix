@@ -4,9 +4,7 @@
   boot.loader = {
     systemd-boot.enable = true;
     efi.canTouchEfiVariables = true;
-    grub = {
-      configurationLimit = 10;
-    };
+    grub = { configurationLimit = 10; };
   };
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
@@ -15,9 +13,7 @@
     keyMap = "us";
   };
 
-  programs = {
-    openvpn3.enable = true;
-  };
+  programs = { openvpn3.enable = true; };
 
   security.rtkit.enable = true;
   services = {
@@ -29,9 +25,7 @@
     };
     xserver = {
       enable = true;
-      displayManager = {
-        gdm.enable = true;
-      };
+      displayManager = { gdm.enable = true; };
       desktopManager.gnome.enable = true;
       videoDrivers = [ "modesetting" ];
       layout = "us,ru";
@@ -50,13 +44,13 @@
   users = {
     defaultUserShell = pkgs.zsh;
     users.nish = {
-     isNormalUser = true;
-     extraGroups = [ "wheel" "input" "podman" ];
-   };
-   users.work = {
-     isNormalUser = true;
-     extraGroups = [ "wheel" "input" "docker" ];
-   };
+      isNormalUser = true;
+      extraGroups = [ "wheel" "input" "podman" ];
+    };
+    users.work = {
+      isNormalUser = true;
+      extraGroups = [ "wheel" "input" "docker" ];
+    };
   };
 
   systemd.user.services.graphical = {
@@ -67,9 +61,7 @@
     partOf = [ "graphical-session.target" ];
   };
 
-  nixpkgs.config = {
-    allowUnfree = true;
-  };
+  nixpkgs.config = { allowUnfree = true; };
   hardware = {
     pulseaudio.enable = false;
     bluetooth.enable = true;
@@ -90,9 +82,7 @@
     '';
     settings = {
       trusted-users = [ "root" "nish" "work" ];
-      substituters = [
-        "https://cache.nixos.org"
-      ];
+      substituters = [ "https://cache.nixos.org" ];
       accept-flake-config = true;
     };
   };
@@ -101,11 +91,7 @@
     fontconfig.enable = true;
     fontDir.enable = true;
     enableGhostscriptFonts = true;
-    fonts = with pkgs; [
-      corefonts
-      powerline-fonts
-      noto-fonts-emoji
-    ];
+    fonts = with pkgs; [ corefonts powerline-fonts noto-fonts-emoji ];
   };
 
   time.hardwareClockInLocalTime = true;

@@ -61,10 +61,10 @@
           };
           purescript = {
             command = "purescript-language-server";
-            args = ["--stdio"];
-            filetypes = ["purs" "purescript"];
+            args = [ "--stdio" ];
+            filetypes = [ "purs" "purescript" ];
             traceserver = "off";
-            rootPatterns = ["bower.json" "psc-package.json" "spago.dhall"];
+            rootPatterns = [ "bower.json" "psc-package.json" "spago.dhall" ];
             settings = {
               purescript = {
                 addSpagoSources = true;
