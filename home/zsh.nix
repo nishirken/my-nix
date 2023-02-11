@@ -46,6 +46,8 @@
       goo = "git checkout --ours";
       gaapf = "gaa && gcn! && gpf";
 
+      docker = "podman";
+
       vpnstart = "openvpn3 session-start --config ";
       vpnstop = "openvpn3 session-manage -D --config ";
     };

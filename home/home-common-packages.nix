@@ -24,4 +24,7 @@ with pkgs; [
   jq
   openssh
   nixfmt
+
+  #own
+  templates
 ]

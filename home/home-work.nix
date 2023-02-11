@@ -1,5 +1,6 @@
-args@{ config, pkgs, ... }:
-let commonPackages = import ./home-packages.nix { pkgs = pkgs; };
+{ pkgs, ... }:
+
+let commonPackages = import ./home-common-packages.nix { pkgs = pkgs; };
 
 in {
   programs = { git.userEmail = "dmitrii.skurikhin@anna.money"; };

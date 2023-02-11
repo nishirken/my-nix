@@ -12,16 +12,13 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-22.11";
-    # nixpkgs_unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager/release-22.11";
     templates.url = "github:nishirken/templates/master";
     hcw.url = "github:nishirken/hspec-cabal-watch/master";
     hcli.url = "github:nishirken/hcli/master";
   };
 
-  outputs = { self, nixpkgs,
-    # nixpkgs_unstable,
-    home-manager, templates, hcw, hcli, ... }:
+  outputs = { self, nixpkgs, home-manager, templates, hcw, hcli, ... }:
     let
       patchedZoom = pkgs:
         pkgs.zoom-us.overrideAttrs (attrs: {
@@ -32,12 +29,17 @@
           '' + attrs.postFixup or "";
         });
       modules = [
-        ./home-common.nix
-        ./programs/vim.nix
-        ./programs/code.nix
-        ./programs/zsh.nix
-        ./programs/terminal.nix
+        ./home/home-common.nix
+        ./home/vim.nix
+        ./home/code.nix
+        ./home/zsh.nix
+        ./home/terminal.nix
       ];
+      commonPkgsArgs = {
+        system = "x86_64-linux";
+        config.allowUnfree = true;
+        config.permittedInsecurePackages = [ "electron-15.5.2" ];
+      };
     in {
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -61,10 +63,7 @@
       };
 
       homeConfigurations.nish = home-manager.lib.homeManagerConfiguration {
-        pkgs = (import nixpkgs {
-          system = "x86_64-linux";
-          config.allowUnfree = true;
-          config.permittedInsecurePackages = [ "electron-15.5.2" ];
+        pkgs = (import nixpkgs (commonPkgsArgs // {
           overlays = [
             (final: prev: {
               templates = templates.defaultPackage.${final.system};
@@ -73,18 +72,21 @@
               zoom-us = patchedZoom prev;
             })
           ];
-        });
-        modules = modules ++ [ ./home-nish.nix ];
+        }));
+        modules = modules ++ [ ./home/home-nish.nix ];
       };
 
       homeConfigurations.work = home-manager.lib.homeManagerConfiguration {
-        pkgs = (import nixpkgs {
-          system = "x86_64-linux";
-          config.allowUnfree = true;
-          config.permittedInsecurePackages = [ "electron-15.5.2" ];
-          overlays = [ (final: prev: { zoom-us = patchedZoom prev; }) ];
-        });
-        modules = modules ++ [ ./home-work.nix ];
+        pkgs = (import nixpkgs (commonPkgsArgs // {
+          overlays = [
+            (final: prev: {
+
+              templates = templates.defaultPackage.${final.system};
+              zoom-us = patchedZoom prev;
+            })
+          ];
+        }));
+        modules = modules ++ [ ./home/home-work.nix ];
       };
     };
 }
