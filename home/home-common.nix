@@ -11,6 +11,7 @@
     git = {
       enable = true;
       userName = "Dmitrii Skurikhin";
+      extraConfig = { push.autoSetupRemote = true; };
     };
   };
 
