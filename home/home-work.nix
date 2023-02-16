@@ -11,6 +11,7 @@ in {
           "git add -N . && git update-index --assume-unchanged flake.nix flake.lock pyproject.toml poetry.lock .envrc";
         unstashenv =
           "git update-index --no-assume-unchanged flake.nix flake.lock pyproject.toml poetry.lock .envrc && gaa && gst";
+        shellwebstorm = "nohup webstorm >/dev/null 2>&1 &";
       };
     };
   };
@@ -21,5 +22,6 @@ in {
   };
 
   home.packages = with pkgs;
-    [ docker-client slack jetbrains.webstorm ] ++ commonPackages;
+    [ docker-client slack jetbrains.webstorm jetbrains.pycharm-community ]
+    ++ commonPackages;
 }
