@@ -11,7 +11,8 @@ in {
           "git add -N . && git update-index --assume-unchanged flake.nix flake.lock pyproject.toml poetry.lock .envrc";
         unstashenv =
           "git update-index --no-assume-unchanged flake.nix flake.lock pyproject.toml poetry.lock .envrc && gaa && gst";
-        shellwebstorm = "nohup webstorm >/dev/null 2>&1 &";
+        shwebstorm = "nohup webstorm >/dev/null 2>&1 &";
+        shpycharm = "nohup pycharm-community >/dev/null 2>&1 &";
       };
     };
   };
