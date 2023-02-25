@@ -45,13 +45,13 @@
     defaultUserShell = pkgs.zsh;
     users.nish = {
       isNormalUser = true;
-      extraGroups = [ "wheel" "input" "podman" ];
+      extraGroups = [ "wheel" "input" "podman" "networkmanager" ];
       hashedPassword =
         "$y$j9T$qdvZ0ynmV14YU5TqvTLUO.$PW6h7tKJXxWA3tDAwh1QMhRj.FKMAgzrPPDbOfxGRU3";
     };
     users.work = {
       isNormalUser = true;
-      extraGroups = [ "wheel" "input" "docker" ];
+      extraGroups = [ "wheel" "input" "docker" "networkmanager" ];
       hashedPassword =
         "$y$j9T$OkFUzghXyf9JOh1vdAnuW0$PioS30uNtvmlu7E/T4ewgaLhPlid0DgsIZLe/Pc9j/1";
     };
