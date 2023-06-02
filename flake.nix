@@ -11,8 +11,8 @@
   };
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-22.11";
-    home-manager.url = "github:nix-community/home-manager/release-22.11";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.05";
+    home-manager.url = "github:nix-community/home-manager/release-23.05";
     templates.url = "github:nishirken/templates/master";
     hcw.url = "github:nishirken/hspec-cabal-watch/master";
     hcli.url = "github:nishirken/hcli/master";

@@ -99,7 +99,7 @@
   };
 
   time.hardwareClockInLocalTime = true;
-  system.stateVersion = "22.11";
+  system.stateVersion = "23.05";
 
   networking.networkmanager.enable = true;
 
@@ -108,7 +108,7 @@
     podman = {
       enable = true;
       dockerSocket.enable = true;
-      defaultNetwork.dnsname.enable = true;
+      defaultNetwork.settings.dns_enabled = true;
     };
   };
 }

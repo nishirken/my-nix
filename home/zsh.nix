@@ -50,7 +50,8 @@
 
       vpnstart = "openvpn3 session-start --config ";
       vpnstop = "openvpn3 session-manage -D --config ";
-      vpnkill = "for session in $(openvpn3 sessions-list | grep -i 'path' | awk '{p=index($0, \":\");print $2}'); do openvpn3 session-manage -D -o \${session}; done";
+      vpnkill = ''
+        for session in $(openvpn3 sessions-list | grep -i 'path' | awk '{p=index($0, ":");print $2}'); do openvpn3 session-manage -D -o ''${session}; done'';
     };
     localVariables = {
       NIX_PATH = "$HOME/.nix-defexpr/channels\${NIX_PATH:+:}$NIX_PATH";

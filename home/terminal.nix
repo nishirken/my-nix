@@ -5,7 +5,7 @@
     enable = true;
     settings = {
       window = {
-        decorations_theme_variant = "Orchis";
+        decorations_theme_variant = "Dark";
         startup_mode = "Fullscreen";
       };
       env = { TERM = "xterm-256color"; };

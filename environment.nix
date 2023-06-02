@@ -12,6 +12,8 @@
     systemPackages = [ xorg.xbacklight parted pciutils lshw xclip ];
   };
 
+  programs.zsh.enable = true;
+
   programs.steam = {
     enable = true;
     package = pkgs.steam.override {
