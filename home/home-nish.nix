@@ -29,5 +29,6 @@ in {
       lutris
       wine64
       brave
+      whatsapp-for-linux
     ] ++ commonPackages;
 }
