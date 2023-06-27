@@ -24,6 +24,7 @@ with pkgs; [
   jq
   openssh
   nixfmt
+  jetbrains-toolbox
 
   #own
   templates
