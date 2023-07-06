@@ -17,9 +17,9 @@ in {
       vlc
       libreoffice
       skypeforlinux
-      templates
-      hcw
-      hcli
+      # templates
+      # hcw
+      # hcli
       morgen # calendar
       postman
       dbeaver

@@ -25,7 +25,5 @@ with pkgs; [
   openssh
   nixfmt
   jetbrains-toolbox
-
-  #own
-  templates
+  ffmpeg_6-full # mp4 to mp3
 ]
