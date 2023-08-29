@@ -26,4 +26,5 @@ with pkgs; [
   nixfmt
   jetbrains-toolbox
   ffmpeg_6-full # mp4 to mp3
+  anki
 ]

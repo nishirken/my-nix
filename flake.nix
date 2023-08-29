@@ -12,13 +12,14 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.05";
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager/release-23.05";
     templates.url = "github:nishirken/templates/master";
     hcw.url = "github:nishirken/hspec-cabal-watch/master";
     hcli.url = "github:nishirken/hcli/master";
   };
 
-  outputs = { self, nixpkgs, home-manager, templates, hcw, hcli, ... }:
+  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, templates, hcw, hcli, ... }:
     let
       patchedZoom = pkgs:
         pkgs.zoom-us.overrideAttrs (attrs: {
@@ -77,7 +78,7 @@
       };
 
       homeConfigurations.work = home-manager.lib.homeManagerConfiguration {
-        pkgs = (import nixpkgs (commonPkgsArgs // {
+        pkgs = (import nixpkgs-unstable (commonPkgsArgs // {
           overlays = [
             (final: prev: {
 
