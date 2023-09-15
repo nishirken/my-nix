@@ -22,6 +22,7 @@
       coc-eslint
       coc-tsserver
       vim-flutter
+      dart-vim-plugin
     ];
     vimAlias = true;
     extraConfig = ''
