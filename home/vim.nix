@@ -21,6 +21,7 @@
       vim-fugitive
       coc-eslint
       coc-tsserver
+      vim-flutter
     ];
     vimAlias = true;
     extraConfig = ''
