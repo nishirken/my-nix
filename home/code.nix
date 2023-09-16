@@ -4,8 +4,13 @@
   programs.vscode = {
     enable = true;
     extensions = with pkgs.vscode-extensions;
-      [ haskell.haskell eamodio.gitlens svelte.svelte-vscode ms-python.python ]
-      ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+      [
+        haskell.haskell
+        eamodio.gitlens
+        svelte.svelte-vscode
+        ms-python.python
+        dart-code.flutter
+      ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
         {
           name = "language-haskell";
           publisher = "justusadam";
