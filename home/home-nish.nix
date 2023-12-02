@@ -21,14 +21,11 @@ in {
       # hcw
       # hcli
       morgen # calendar
-      postman
-      dbeaver
+      # postman
+      # dbeaver
       cachix
       podman-compose
       gitkraken
-      lutris
-      wine64
-      brave
       whatsapp-for-linux
     ] ++ commonPackages;
 }

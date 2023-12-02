@@ -95,11 +95,11 @@
     fontconfig.enable = true;
     fontDir.enable = true;
     enableGhostscriptFonts = true;
-    fonts = with pkgs; [ corefonts powerline-fonts noto-fonts-emoji ];
+    packages = with pkgs; [ corefonts powerline-fonts noto-fonts-emoji ];
   };
 
   time.hardwareClockInLocalTime = true;
-  system.stateVersion = "23.05";
+  system.stateVersion = "23.11";
 
   networking.networkmanager.enable = true;
 

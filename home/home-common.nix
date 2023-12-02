@@ -3,7 +3,13 @@
 {
   programs = {
     home-manager.enable = true;
-    firefox.enable = true;
+    firefox = {
+      enable = true;
+      profiles.default.search = {
+        default = "google";
+        force = true;
+      };
+    };
     direnv = {
       enable = true;
       nix-direnv.enable = true;
@@ -26,7 +32,7 @@
       layout = "us,ru";
       options = [ "grp:super_space_toggle" ];
     };
-    stateVersion = "22.11";
+    stateVersion = "23.11";
   };
 
   gtk = {

@@ -11,24 +11,23 @@
   };
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.05";
-    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
-    home-manager.url = "github:nix-community/home-manager/release-23.05";
-    templates.url = "github:nishirken/templates/master";
-    hcw.url = "github:nishirken/hspec-cabal-watch/master";
-    hcli.url = "github:nishirken/hcli/master";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.11";
+    home-manager.url = "github:nix-community/home-manager/release-23.11";
+    # templates.url = "github:nishirken/templates/master";
+    # hcw.url = "github:nishirken/hspec-cabal-watch/master";
+    # hcli.url = "github:nishirken/hcli/master";
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, templates, hcw, hcli, ... }:
+  outputs = { self, nixpkgs, home-manager, ... }:
     let
-      patchedZoom = pkgs:
-        pkgs.zoom-us.overrideAttrs (attrs: {
-          nativeBuildInputs = attrs.nativeBuildInputs or [ ] ++ [ pkgs.bbe ];
-          postFixup = ''
-            cp $out/opt/zoom/zoom .
-            bbe -e 's/\0manjaro\0/\0nixos\0\0\0/' < zoom > $out/opt/zoom/zoom
-          '' + attrs.postFixup or "";
-        });
+      #patchedZoom = pkgs:
+        #pkgs.zoom-us.overrideAttrs (attrs: {
+        #  nativeBuildInputs = attrs.nativeBuildInputs or [ ] ++ [ pkgs.bbe ];
+        #  postFixup = ''
+        #    cp $out/opt/zoom/zoom .
+        #    bbe -e 's/\0manjaro\0/\0nixos\0\0\0/' < zoom > $out/opt/zoom/zoom
+        #  '' + attrs.postFixup or "";
+        #});
       modules = [
         ./home/home-common.nix
         ./home/vim.nix
@@ -39,7 +38,7 @@
       commonPkgsArgs = {
         system = "x86_64-linux";
         config.allowUnfree = true;
-        config.permittedInsecurePackages = [ "electron-15.5.2" ];
+        config.permittedInsecurePackages = [ "mailspring-1.12.0" ];
       };
     in {
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
@@ -67,10 +66,10 @@
         pkgs = (import nixpkgs (commonPkgsArgs // {
           overlays = [
             (final: prev: {
-              templates = templates.defaultPackage.${final.system};
-              hcw = hcw.defaultPackage.${final.system};
-              hcli = hcli.defaultPackage.${final.system};
-              zoom-us = patchedZoom prev;
+              # templates = templates.defaultPackage.${final.system};
+              # hcw = hcw.defaultPackage.${final.system};
+              # hcli = hcli.defaultPackage.${final.system};
+              # zoom-us = patchedZoom prev;
             })
           ];
         }));
@@ -78,12 +77,11 @@
       };
 
       homeConfigurations.work = home-manager.lib.homeManagerConfiguration {
-        pkgs = (import nixpkgs-unstable (commonPkgsArgs // {
+        pkgs = (import nixpkgs (commonPkgsArgs // {
           overlays = [
             (final: prev: {
-
-              templates = templates.defaultPackage.${final.system};
-              zoom-us = patchedZoom prev;
+              # templates = templates.defaultPackage.${final.system};
+              # zoom-us = patchedZoom prev;
             })
           ];
         }));
