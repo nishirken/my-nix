@@ -48,6 +48,7 @@
     coc = {
       enable = true;
       settings = {
+        "pylsp.builtin.enableInstallPylspMypy" = true;
         languageserver = {
           haskell = {
             command = "haskell-language-server";
@@ -76,6 +77,7 @@
           };
         };
         eslint = {
+          enable = false;
           autoFixOnSave = true;
           quiet = true;
         };
