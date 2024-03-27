@@ -27,5 +27,6 @@ in {
       podman-compose
       gitkraken
       whatsapp-for-linux
+      espeak-classic
     ] ++ commonPackages;
 }
