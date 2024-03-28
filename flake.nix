@@ -13,21 +13,10 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.11";
     home-manager.url = "github:nix-community/home-manager/release-23.11";
-    # templates.url = "github:nishirken/templates/master";
-    # hcw.url = "github:nishirken/hspec-cabal-watch/master";
-    # hcli.url = "github:nishirken/hcli/master";
   };
 
   outputs = { self, nixpkgs, home-manager, ... }:
     let
-      #patchedZoom = pkgs:
-        #pkgs.zoom-us.overrideAttrs (attrs: {
-        #  nativeBuildInputs = attrs.nativeBuildInputs or [ ] ++ [ pkgs.bbe ];
-        #  postFixup = ''
-        #    cp $out/opt/zoom/zoom .
-        #    bbe -e 's/\0manjaro\0/\0nixos\0\0\0/' < zoom > $out/opt/zoom/zoom
-        #  '' + attrs.postFixup or "";
-        #});
       modules = [
         ./home/home-common.nix
         ./home/vim.nix
@@ -63,28 +52,12 @@
       };
 
       homeConfigurations.nish = home-manager.lib.homeManagerConfiguration {
-        pkgs = (import nixpkgs (commonPkgsArgs // {
-          overlays = [
-            (final: prev: {
-              # templates = templates.defaultPackage.${final.system};
-              # hcw = hcw.defaultPackage.${final.system};
-              # hcli = hcli.defaultPackage.${final.system};
-              # zoom-us = patchedZoom prev;
-            })
-          ];
-        }));
+        pkgs = import nixpkgs commonPkgsArgs;
         modules = modules ++ [ ./home/home-nish.nix ];
       };
 
       homeConfigurations.work = home-manager.lib.homeManagerConfiguration {
-        pkgs = (import nixpkgs (commonPkgsArgs // {
-          overlays = [
-            (final: prev: {
-              # templates = templates.defaultPackage.${final.system};
-              # zoom-us = patchedZoom prev;
-            })
-          ];
-        }));
+        pkgs = import nixpkgs commonPkgsArgs;
         modules = modules ++ [ ./home/home-work.nix ];
       };
     };

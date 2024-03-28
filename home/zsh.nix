@@ -11,7 +11,8 @@
       sudocode = "sudo code --user-data-dir '.' --no-sandbox";
       vimnix = "nvim ~/Projects/my-nix";
       sys-switch = "sudo nixos-rebuild switch --flake ~/Projects/my-nix";
-      home-switch = "home-manager switch --flake ~/Projects/my-nix";
+      home-switch =
+        "export NIXPKGS_ALLOW_INSECURE=1 home-manager switch --flake ~/Projects/my-nix --impure";
       logout = "gnome-session-save --force-logout";
       cabalgen = "cabal2nix --shell";
       cache = ''
