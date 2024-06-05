@@ -28,14 +28,14 @@
       displayManager = { gdm.enable = true; };
       desktopManager.gnome.enable = true;
       videoDrivers = [ "modesetting" ];
-      layout = "us,ru";
-      xkbOptions = "grp:super_space_toggle";
-      libinput = {
-        enable = true;
-        touchpad = {
-          disableWhileTyping = true;
-          clickMethod = "clickfinger";
-        };
+      xkb.layout = "us,ru";
+      xkb.options = "grp:super_space_toggle";
+    };
+    libinput = {
+      enable = true;
+      touchpad = {
+        disableWhileTyping = true;
+        clickMethod = "clickfinger";
       };
     };
     accounts-daemon.enable = true;
@@ -99,7 +99,7 @@
   };
 
   time.hardwareClockInLocalTime = true;
-  system.stateVersion = "23.11";
+  system.stateVersion = "24.05";
 
   networking.networkmanager.enable = true;
 

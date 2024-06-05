@@ -23,7 +23,7 @@ with pkgs; [
   imagemagick
   jq
   openssh
-  nixfmt
+  nixfmt-classic
   jetbrains-toolbox
   ffmpeg_6-full # mp4 to mp3
   anki

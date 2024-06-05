@@ -32,7 +32,7 @@
       layout = "us,ru";
       options = [ "grp:super_space_toggle" ];
     };
-    stateVersion = "23.11";
+    stateVersion = "24.05";
   };
 
   gtk = {
