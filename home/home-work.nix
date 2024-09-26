@@ -23,6 +23,11 @@ in {
   };
 
   home.packages = with pkgs;
-    [ docker-client slack jetbrains.webstorm jetbrains.pycharm-community ]
-    ++ commonPackages;
+    [
+      docker-client
+      slack
+      jetbrains.webstorm
+      jetbrains.rider
+      jetbrains.pycharm-community
+    ] ++ commonPackages;
 }

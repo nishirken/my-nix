@@ -13,9 +13,10 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
     home-manager.url = "github:nix-community/home-manager/release-24.05";
+    awesome-neovim-plugins.url = "github:m15a/flake-awesome-neovim-plugins";
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }:
+  outputs = { self, nixpkgs, home-manager, awesome-neovim-plugins, ... }:
     let
       modules = [
         ./home/home-common.nix
@@ -25,8 +26,11 @@
         ./home/terminal.nix
       ];
       commonPkgsArgs = {
+      };
+      pkgs = import nixpkgs {
         system = "x86_64-linux";
         config.allowUnfree = true;
+        overlays = [ awesome-neovim-plugins.overlays.default ];
       };
     in {
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
@@ -51,12 +55,12 @@
       };
 
       homeConfigurations.nish = home-manager.lib.homeManagerConfiguration {
-        pkgs = import nixpkgs commonPkgsArgs;
+        pkgs = pkgs;
         modules = modules ++ [ ./home/home-nish.nix ];
       };
 
       homeConfigurations.work = home-manager.lib.homeManagerConfiguration {
-        pkgs = import nixpkgs commonPkgsArgs;
+        pkgs = pkgs;
         modules = modules ++ [ ./home/home-work.nix ];
       };
     };

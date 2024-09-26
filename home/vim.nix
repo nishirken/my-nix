@@ -1,29 +1,37 @@
 { pkgs, ... }:
 
-{
+let
+  standardPlugins = with pkgs.vimPlugins; [
+    vim-nix
+    haskell-vim
+    typescript-vim
+    purescript-vim
+    vim-css-color
+    coc-nvim
+    nord-nvim # color scheme
+    vim-sleuth # auto tabsize
+    neogit
+    fzf-vim # files search
+    git-blame-nvim
+    vim-visual-multi
+    vim-airline
+    vim-airline-themes
+    vim-fugitive
+    coc-eslint
+    coc-tsserver
+    vim-flutter
+    dart-vim-plugin
+  ];
+  awesomePlugins = with pkgs.awesomeNeovimPlugins; [
+    neo-tree-nvim
+    nui-nvim
+    nvim-web-devicons
+    image-nvim
+  ];
+in {
   programs.neovim = {
     enable = true;
-    plugins = with pkgs.vimPlugins; [
-      vim-nix
-      haskell-vim
-      typescript-vim
-      purescript-vim
-      vim-css-color
-      coc-nvim
-      nord-nvim # color scheme
-      vim-sleuth # auto tabsize
-      neogit
-      fzf-vim # files search
-      git-blame-nvim
-      vim-visual-multi
-      vim-airline
-      vim-airline-themes
-      vim-fugitive
-      coc-eslint
-      coc-tsserver
-      vim-flutter
-      dart-vim-plugin
-    ];
+    plugins = standardPlugins ++ awesomePlugins;
     vimAlias = true;
     extraConfig = ''
       nnoremap <silent> gh :call CocActionAsync('doHover')<cr>
@@ -74,6 +82,11 @@
                 formatter = "purs-tidy";
               };
             };
+          };
+          csharp-ls = {
+            command = "csharp-ls";
+            filetypes = [ "cs" ];
+            rootPatterns = [ "*.csproj" ];
           };
         };
         eslint = {
