@@ -22,6 +22,7 @@ let
     vim-flutter
     dart-vim-plugin
     coc-tsserver
+    coc-python
   ];
   awesomePlugins = with pkgs.awesomeNeovimPlugins; [
     neo-tree-nvim
