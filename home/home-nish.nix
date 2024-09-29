@@ -21,10 +21,8 @@ in {
       # hcw
       # hcli
       morgen # calendar
-      # postman
       # dbeaver
       cachix
-      podman-compose
       gitkraken
       whatsapp-for-linux
       espeak-classic

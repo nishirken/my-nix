@@ -2,13 +2,7 @@
 
 let
   standardPlugins = with pkgs.vimPlugins; [
-    vim-nix
-    haskell-vim
-    typescript-vim
-    purescript-vim
-    vim-css-color
-    coc-nvim
-    nord-nvim # color scheme
+    gruvbox-material-nvim
     vim-sleuth # auto tabsize
     neogit
     fzf-vim # files search
@@ -17,12 +11,18 @@ let
     vim-airline
     vim-airline-themes
     vim-fugitive
+
+    # Languages
     coc-eslint
-    coc-tsserver
     vim-flutter
     dart-vim-plugin
+    haskell-vim
+    typescript-vim
+    vim-nix
+    vim-css-color
+    purescript-vim
     coc-tsserver
-    coc-python
+    coc-pyright
   ];
   awesomePlugins = with pkgs.awesomeNeovimPlugins; [
     neo-tree-nvim
@@ -38,15 +38,14 @@ in {
     extraConfig = ''
       nnoremap <silent> gh :call CocActionAsync('doHover')<cr>
       nnoremap <silent> gd :call CocAction('jumpDefinition', 'tab drop')<cr>
+      nnoremap gr <Plug>(coc-references)
 
       set tabstop=2
       set shiftwidth=2
       set expandtab
 
       set termguicolors
-      colorscheme nord
-      let g:nord_contrast = v:true
-      let g:nord_borders = v:true
+      colorscheme gruvbox-material
       let g:airline_theme='base16'
 
       " restore alacritty cursor
@@ -58,8 +57,8 @@ in {
     coc = {
       enable = true;
       settings = {
-        "pylsp.builtin.enableInstallPylspMypy" = true;
         languageserver = {
+          pylsp.enable = false;
           haskell = {
             command = "haskell-language-server";
             args = [ "--lsp" "--project-ghc-version" ];

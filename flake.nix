@@ -14,9 +14,10 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
     home-manager.url = "github:nix-community/home-manager/release-24.05";
     awesome-neovim-plugins.url = "github:m15a/flake-awesome-neovim-plugins";
+    alacritty-theme.url = "github:alexghr/alacritty-theme.nix";
   };
 
-  outputs = { self, nixpkgs, home-manager, awesome-neovim-plugins, ... }:
+  outputs = { self, nixpkgs, home-manager, awesome-neovim-plugins, alacritty-theme, ... }:
     let
       modules = [
         ./home/home-common.nix
@@ -30,7 +31,7 @@
       pkgs = import nixpkgs {
         system = "x86_64-linux";
         config.allowUnfree = true;
-        overlays = [ awesome-neovim-plugins.overlays.default ];
+        overlays = [ awesome-neovim-plugins.overlays.default alacritty-theme.overlays.default ];
       };
     in {
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {

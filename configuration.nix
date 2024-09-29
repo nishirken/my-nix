@@ -61,13 +61,13 @@
     defaultUserShell = pkgs.zsh;
     users.nish = {
       isNormalUser = true;
-      extraGroups = [ "wheel" "input" "podman" "networkmanager" ];
+      extraGroups = [ "wheel" "input" "networkmanager" ];
       hashedPassword =
         "$y$j9T$qdvZ0ynmV14YU5TqvTLUO.$PW6h7tKJXxWA3tDAwh1QMhRj.FKMAgzrPPDbOfxGRU3";
     };
     users.work = {
       isNormalUser = true;
-      extraGroups = [ "wheel" "input" "docker" "networkmanager" ];
+      extraGroups = [ "wheel" "input" "networkmanager" ];
       hashedPassword =
         "$y$j9T$OkFUzghXyf9JOh1vdAnuW0$PioS30uNtvmlu7E/T4ewgaLhPlid0DgsIZLe/Pc9j/1";
     };
@@ -120,11 +120,12 @@
   networking.networkmanager.enable = true;
 
   virtualisation = {
-    docker.enable = false;
-    podman = {
+    docker = {
       enable = true;
-      dockerSocket.enable = true;
-      defaultNetwork.settings.dns_enabled = true;
+      rootless = {
+        enable = true;
+        setSocketVariable = true;
+      };
     };
   };
 }

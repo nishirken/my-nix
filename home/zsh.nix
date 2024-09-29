@@ -47,7 +47,6 @@
       goo = "git checkout --ours";
       gaapf = "gaa && gcn! && gpf";
 
-      docker = "podman";
       nix-locate = "nix run github:nix-community/nix-index#nix-locate";
 
       vpnstart = "openvpn3 session-start --config ";

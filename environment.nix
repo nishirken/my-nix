@@ -9,7 +9,7 @@
     gnome.excludePackages = [ xterm ];
     shells = [ zsh ];
 
-    systemPackages = [ xorg.xbacklight parted pciutils lshw xclip ];
+    systemPackages = [ xorg.xbacklight parted pciutils lshw xclip docker-compose docker-client ];
   };
 
   programs.zsh.enable = true;
