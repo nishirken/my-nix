@@ -16,6 +16,7 @@ let
     coc-eslint
     vim-flutter
     dart-vim-plugin
+    haskell-tools-nvim
     haskell-vim
     typescript-vim
     vim-nix
@@ -59,18 +60,18 @@ in {
       settings = {
         languageserver = {
           pylsp.enable = false;
-          haskell = {
-            command = "haskell-language-server";
-            args = [ "--lsp" "--project-ghc-version" ];
-            rootPatterns = [
-              "*.cabal"
-              "stack.yaml"
-              "cabal.project"
-              "package.yaml"
-              "hie.yaml"
-            ];
-            filetypes = [ "haskell" "lhaskell" "hs" ];
-          };
+          #haskell = {
+          #  command = "haskell-language-server";
+          #  args = [ "--lsp" "--project-ghc-version" ];
+          #  rootPatterns = [
+          #    "*.cabal"
+          #    "stack.yaml"
+          #    "cabal.project"
+          #    "package.yaml"
+          #    "hie.yaml"
+          #  ];
+          #  filetypes = [ "haskell" "lhaskell" "hs" ];
+          #};
           purescript = {
             command = "purescript-language-server";
             args = [ "--stdio" ];
