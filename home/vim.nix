@@ -1,6 +1,7 @@
 { pkgs, ... }:
 
 let
+  root = builtins.getEnv "PWD";
   standardPlugins = with pkgs.vimPlugins; [
     gruvbox-material-nvim
     vim-sleuth # auto tabsize
@@ -11,12 +12,13 @@ let
     vim-airline
     vim-airline-themes
     vim-fugitive
+    telescope-nvim
 
     # Languages
+    vim-nickel
     coc-eslint
     vim-flutter
     dart-vim-plugin
-    haskell-tools-nvim
     haskell-vim
     typescript-vim
     vim-nix
@@ -35,43 +37,26 @@ in {
   programs.neovim = {
     enable = true;
     plugins = standardPlugins ++ awesomePlugins;
+    viAlias = true;
     vimAlias = true;
-    extraConfig = ''
-      nnoremap <silent> gh :call CocActionAsync('doHover')<cr>
-      nnoremap <silent> gd :call CocAction('jumpDefinition', 'tab drop')<cr>
-      nnoremap gr <Plug>(coc-references)
-
-      set tabstop=2
-      set shiftwidth=2
-      set expandtab
-
-      set termguicolors
-      colorscheme gruvbox-material
-      let g:airline_theme='base16'
-
-      " restore alacritty cursor
-      augroup RestoreCursorShapeOnExit
-        autocmd!
-        autocmd VimLeave * set guicursor=a:ver15:blinkwait750-blinkoff750-blinkon750
-      augroup END
-    '';
+    extraConfig = builtins.readFile "${root}/home/init.vim";
     coc = {
       enable = true;
       settings = {
         languageserver = {
           pylsp.enable = false;
-          #haskell = {
-          #  command = "haskell-language-server";
-          #  args = [ "--lsp" "--project-ghc-version" ];
-          #  rootPatterns = [
-          #    "*.cabal"
-          #    "stack.yaml"
-          #    "cabal.project"
-          #    "package.yaml"
-          #    "hie.yaml"
-          #  ];
-          #  filetypes = [ "haskell" "lhaskell" "hs" ];
-          #};
+          haskell = {
+            command = "haskell-language-server-wrapper";
+            args = [ "--lsp" ];
+            rootPatterns = [
+              "*.cabal"
+              "stack.yaml"
+              "cabal.project"
+              "package.yaml"
+              "hie.yaml"
+            ];
+            filetypes = [ "haskell" "lhaskell" "hs" ];
+          };
           purescript = {
             command = "purescript-language-server";
             args = [ "--stdio" ];

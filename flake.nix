@@ -31,7 +31,10 @@
       pkgs = import nixpkgs {
         system = "x86_64-linux";
         config.allowUnfree = true;
-        overlays = [ awesome-neovim-plugins.overlays.default alacritty-theme.overlays.default ];
+        overlays = [
+          awesome-neovim-plugins.overlays.default
+          alacritty-theme.overlays.default
+      ];
       };
     in {
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
