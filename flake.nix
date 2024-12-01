@@ -11,8 +11,8 @@
   };
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
-    home-manager.url = "github:nix-community/home-manager/release-24.05";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
+    home-manager.url = "github:nix-community/home-manager/release-24.11";
     awesome-neovim-plugins.url = "github:m15a/flake-awesome-neovim-plugins";
     alacritty-theme.url = "github:alexghr/alacritty-theme.nix";
   };

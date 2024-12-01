@@ -39,7 +39,7 @@
     enable = true;
     theme = {
       name = "Orchis";
-      package = pkgs.orchis;
+      package = pkgs.orchis-theme;
     };
     iconTheme = {
       name = "Tela";
