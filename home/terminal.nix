@@ -4,7 +4,7 @@
   programs.alacritty = {
     enable = true;
     settings = {
-      import = [ pkgs.alacritty-theme.gruvbox_material_medium_dark ];
+      general.import = [ pkgs.alacritty-theme.gruvbox_material_medium_dark ];
       window = {
         decorations_theme_variant = "Dark";
         startup_mode = "Fullscreen";
