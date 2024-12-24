@@ -55,6 +55,9 @@
 
       };
     };
+    openvpn.servers = {
+      work = { config = '' config ~/Documents/device.ovpn ''; };
+    };
   };
 
   users = {
