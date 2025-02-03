@@ -15,6 +15,7 @@
 
   security.rtkit.enable = true;
   services = {
+    resolved.enable = true;
     pipewire = {
       enable = true;
       alsa.enable = true;
@@ -53,6 +54,7 @@
 
       };
     };
+    dbus = { packages = [ pkgs.openvpn3 ]; };
   };
 
   users = {

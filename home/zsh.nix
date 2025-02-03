@@ -49,7 +49,7 @@
 
       nix-locate = "nix run github:nix-community/nix-index#nix-locate";
 
-      vpnstart = "openvpn3 session-start --config ";
+      vpnstart = "openvpn3 session-start --config vpn";
       vpnkill = ''
         for session in $(openvpn3 sessions-list | grep -i 'path' | awk '{p=index($0, ":");print $2}'); do openvpn3 session-manage -D -o ''${session}; done'';
     };
