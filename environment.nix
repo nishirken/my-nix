@@ -9,22 +9,14 @@
     gnome.excludePackages = [ xterm ];
     shells = [ zsh ];
 
-    systemPackages = [ xorg.xbacklight parted pciutils lshw xclip docker-compose docker-client ];
+    systemPackages = [ xorg.xbacklight parted pciutils lshw xclip docker-compose docker-client xdg-utils ];
   };
 
-  programs.zsh.enable = true;
-
-  programs.steam = {
-    enable = true;
-    package = pkgs.steam.override {
-      extraLibraries = pkgs:
-        with config.hardware.opengl;
-        if pkgs.hostPlatform.is64bit then
-          [ package pkgs.ncurses ] ++ extraPackages
-        else
-          [ package32 ] ++ extraPackages32;
-    };
+  programs = {
+    openvpn3.enable = true;
+    zsh.enable = true;
+    light.enable = true;
   };
-  programs.light.enable = true;
+
   services.blueman.enable = true;
 }

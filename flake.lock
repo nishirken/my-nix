@@ -44,11 +44,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1738430806,
-        "narHash": "sha256-2Y71qaN9QDMpixAdrRIWT7Vqjfb85tVCoZYQ71OoX9E=",
+        "lastModified": 1738516982,
+        "narHash": "sha256-58y8uWnC6Umqn2Q1UCeE0qYcQ/SbnImoMeAhsXX3fy8=",
         "owner": "m15a",
         "repo": "flake-awesome-neovim-plugins",
-        "rev": "9b73fbf9e3805d6a26ece1b11bf2db41e050ca3f",
+        "rev": "24132294de08e18bab3ba10fae423bafeca4cfd9",
         "type": "github"
       },
       "original": {

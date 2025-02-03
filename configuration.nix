@@ -13,8 +13,6 @@
     keyMap = "us";
   };
 
-  programs = { openvpn3.enable = true; };
-
   security.rtkit.enable = true;
   services = {
     pipewire = {
@@ -54,9 +52,6 @@
         STOP_CHARGE_THRESH_BAT0 = 80; # 80 and above it stops charging
 
       };
-    };
-    openvpn.servers = {
-      work = { config = '' config ~/Documents/device.ovpn ''; };
     };
   };
 
