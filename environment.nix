@@ -9,7 +9,13 @@
     gnome.excludePackages = [ xterm ];
     shells = [ zsh ];
 
-    systemPackages = [ xorg.xbacklight parted pciutils lshw xclip docker-compose docker-client xdg-utils ];
+    systemPackages = [
+      xorg.xbacklight parted pciutils lshw xclip docker-compose docker-client xdg-utils
+      # uxplay
+      nssmdns
+      uxplay
+      gst_all_1.gst-plugins-viperfx
+    ];
   };
 
   programs = {

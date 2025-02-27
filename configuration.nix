@@ -18,9 +18,20 @@
     resolved.enable = true;
     pipewire = {
       enable = true;
+      raopOpenFirewall = true;
       alsa.enable = true;
+      jack.enable = true;
       alsa.support32Bit = true;
       pulse.enable = true;
+      extraConfig.pipewire = {
+        "10-airplay" = {
+      "context.modules" = [
+        {
+          name = "libpipewire-module-raop-discover";
+        }
+      ];
+    };
+      };
     };
     xserver = {
       enable = true;
@@ -55,6 +66,15 @@
       };
     };
     dbus = { packages = [ pkgs.openvpn3 ]; };
+    avahi = {
+      enable = true;
+      nssmdns4 = true;
+      openFirewall = true;
+      publish = {
+        enable = true;
+        userServices = true;
+      };
+    };
   };
 
   users = {
@@ -117,7 +137,14 @@
   time.hardwareClockInLocalTime = true;
   system.stateVersion = "24.11";
 
-  networking.networkmanager.enable = true;
+  networking = {
+    networkmanager.enable = true;
+    firewall = {
+      enable = true;
+      allowedTCPPortRanges = [{ from = 30000; to = 60000; }];
+      allowedUDPPortRanges = [{ from = 30000; to = 60000; }];
+    };
+  };
 
   virtualisation = {
     docker = {
